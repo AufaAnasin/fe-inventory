@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container, AppBar, Toolbar, Typography, Box } from '@mui/material';
 import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
+import ProductList from './components/ProductList';
+
 
 
 function App() {
@@ -17,7 +20,7 @@ function App() {
         <Box sx={{ minHeight: 'calc(100vh - 64px)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/products" element={<div>Product List Page (To be implemented)</div>} />
+            <Route path="/products" element={<ProtectedRoute><ProductList /></ProtectedRoute>} />
             <Route path="/add-product" element={<div>Add Product Page (To be implemented)</div>} />
             <Route path="/" element={<div>Home (Redirects to Login)</div>} />
           </Routes>
